@@ -176,7 +176,7 @@ body {
    HERO
 ============================================================ */
 #hero {
-  background: linear-gradient(to bottom, var(--yellow) 60%, var(--bg) 100%);
+  background: linear-gradient(to bottom, #FAF0A8 60%, var(--bg) 100%);
   min-height: 100vh;
   padding-top: 52px;
   position: relative;
@@ -581,6 +581,16 @@ body {
   aspect-ratio: 4/3;
   background: #c8c5be;
 }
+.impact-photos-row .placeholder img {
+  transform: scale(1.08);
+  filter: url(#motion-blur) brightness(0.88) contrast(1.1);
+  will-change: transform, filter;
+  transition: filter 0.6s ease, transform 0.6s ease;
+}
+.impact-photos-row .placeholder:hover img {
+  filter: url(#motion-blur-soft) brightness(0.95) contrast(1.05);
+  transform: scale(1.04);
+}
 .impact-items {
   display: flex;
   flex-direction: column;
@@ -657,16 +667,24 @@ body {
 .contact-info {
   position: relative; z-index: 2;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
   margin-top: 4rem;
   font-family: var(--font-h);
-  font-size: 0.88rem; font-weight: 600;
-  letter-spacing: 0.1em; text-transform: uppercase;
+  font-size: 1.15rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  flex-wrap: wrap;
 }
-.contact-info a { color: var(--black); text-decoration: none; }
-.contact-info a:hover { text-decoration: underline; }
-.contact-right { text-align: right; line-height: 1.8; }
+.contact-info a {
+  color: var(--black);
+  text-decoration: none;
+  border-bottom: 2px solid var(--black);
+  padding-bottom: 2px;
+  transition: opacity 0.2s;
+}
+.contact-info a:hover { opacity: 0.55; }
+.contact-right { text-align: center; display: flex; flex-direction: column; gap: 0.5rem; }
 
 /* ============================================================
    RESPONSIVE
@@ -866,8 +884,7 @@ body {
     </div>
     <div class="reveal up d1">
       <div class="video-wrap">
-        <div class="placeholder dark" style="aspect-ratio:16/10;"><span>Видео наскоро</span></div>
-        <div class="play-btn"></div>
+        <video src="videos/dance.mp4" autoplay loop muted playsinline style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover;"></video>
       </div>
     </div>
     <div class="phil-right">
@@ -880,8 +897,7 @@ body {
       </div>
       <div class="reveal right d2">
         <div class="video-wrap">
-          <div class="placeholder dark" style="aspect-ratio:4/3;"><span>Видео наскоро</span></div>
-          <div class="play-btn"></div>
+          <video src="videos/dance-1.mp4" autoplay loop muted playsinline style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover;"></video>
         </div>
       </div>
       <p class="phil-text reveal right d3">
@@ -901,45 +917,23 @@ body {
   <div class="projects-grid">
     <div class="proj-item reveal up">
       <div class="video-wrap">
-        <div class="placeholder dark"><span>Видео наскоро</span></div>
-        <div class="play-btn"></div>
+        <video src="videos/a1.mp4" autoplay loop muted playsinline style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover;"></video>
       </div>
       <p class="proj-label">Кореограф на Реклама на А1 Македонија</p>
     </div>
     <div class="proj-item reveal up d1">
       <div class="video-wrap">
-        <div class="placeholder dark"><span>Видео наскоро</span></div>
-        <div class="play-btn"></div>
+        <video src="videos/alex.mp4" autoplay loop muted playsinline style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover;"></video>
       </div>
-      <p class="proj-label">Танчер на Ребрендирање на Тиквеш</p>
+      <p class="proj-label">InDivisible Performance - MKC</p>
     </div>
     <div class="proj-item reveal up d2">
       <div class="video-wrap">
-        <div class="placeholder dark"><span>Видео наскоро</span></div>
-        <div class="play-btn"></div>
-      </div>
-      <p class="proj-label">Видео Проект во Ист Ритам – Хера</p>
-    </div>
-    <div class="proj-item reveal up d1">
-      <div class="video-wrap">
-        <div class="placeholder dark"><span>Видео наскоро</span></div>
-        <div class="play-btn"></div>
+        <div style="position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;">
+          <video src="videos/2bona.mp4" autoplay loop muted playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;"></video>
+        </div>
       </div>
       <p class="proj-label">2Бона – "Тој Сум" и "Остај Тоа"</p>
-    </div>
-    <div class="proj-item reveal up d2">
-      <div class="video-wrap">
-        <div class="placeholder dark"><span>Видео наскоро</span></div>
-        <div class="play-btn"></div>
-      </div>
-      <p class="proj-label">Настап за Отворање на Diamond Mall</p>
-    </div>
-    <div class="proj-item reveal up d3">
-      <div class="video-wrap">
-        <div class="placeholder dark"><span>Видео наскоро</span></div>
-        <div class="play-btn"></div>
-      </div>
-      <p class="proj-label">Танцова Работилница на Д-Фест</p>
     </div>
   </div>
 </section>
@@ -952,15 +946,13 @@ body {
   <div class="concepts-grid">
     <div class="concept-item reveal left">
       <div class="video-wrap">
-        <div class="placeholder dark"><span>Видео наскоро</span></div>
-        <div class="play-btn"></div>
+        <video src="videos/kontaminacija.mp4" autoplay loop muted playsinline style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover;"></video>
       </div>
       <p class="concept-label">Танцов Концепт за Загадување – "Контаминација"</p>
     </div>
     <div class="concept-item reveal right d1">
       <div class="video-wrap">
-        <div class="placeholder dark"><span>Видео наскоро</span></div>
-        <div class="play-btn"></div>
+        <video src="videos/ojdevojce.mp4" autoplay loop muted playsinline style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover;"></video>
       </div>
       <p class="concept-label">Танцов Концепт – "Ој, Девојче"</p>
     </div>
@@ -981,7 +973,7 @@ body {
     Сум работела со маркетинг агенции, компании, индивидуални артисти. Некои клиенти се:
   </p>
   <p class="clients-names reveal up d2">
-    А1Македонија<span class="dot">·</span>2Бона<span class="dot">·</span>Јован Јованов<span class="dot">·</span>Тиквеш<span class="dot">·</span>Geely Macedonia<span class="dot">·</span>Хера<span class="dot">·</span>Д-Фестивал<span class="dot">·</span>Идеја Плус<span class="dot">·</span>Пиксел<span class="dot">·</span>Александар Динев<span class="dot">·</span>Битрикс Танцова Лига<span class="dot">·</span>Оптика Орбис
+    А1Македонија<span class="dot">·</span>2Бона<span class="dot">·</span>Јован Јованов<span class="dot">·</span>Тиквеш<span class="dot">·</span>Александар Динев<span class="dot">·</span>Geely Macedonia<span class="dot">·</span>Хера<span class="dot">·</span>Д-Фестивал<span class="dot">·</span>Идеја Плус<span class="dot">·</span>HALKECO<span class="dot">·</span>Битрикс Танцова Лига<span class="dot">·</span>Оптика Орбис
   </p>
 </section>
 
@@ -997,9 +989,9 @@ body {
       <h2 class="impact-big reveal left">Влијание<br>и Развој</h2>
     </div>
     <div class="impact-photos-row">
-      <div class="placeholder reveal up d1"><span>Фото</span></div>
-      <div class="placeholder reveal up d2"><span>Фото</span></div>
-      <div class="placeholder reveal up d3"><span>Фото</span></div>
+      <div class="placeholder reveal up d1"><img src="images/bdl.png" alt="Влијание 1"></div>
+      <div class="placeholder reveal up d2"><img src="images/bdl-2.png" alt="Влијание 2"></div>
+      <div class="placeholder reveal up d3"><img src="images/bdl-3.png" alt="Влијание 3"></div>
     </div>
   </div>
 
@@ -1036,8 +1028,7 @@ body {
       <span class="reveal left">Ајде</span>
       <div class="contact-video-inline reveal up d1">
         <div class="video-wrap" style="height:100%;">
-          <div class="placeholder dark" style="height:100%;"><span>Видео</span></div>
-          <div class="play-btn sm"></div>
+          <video src="videos/alex.mp4" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;"></video>
         </div>
       </div>
       <span class="reveal up d1">да</span>
@@ -1051,12 +1042,10 @@ body {
       </svg>
     </div>
   </div>
-  <div class="contact-info reveal up d2">
-    <a href="tel:+38976477668">+389 76/477-668</a>
-    <div class="contact-right">
-      <a href="mailto:georgievaiva59@gmail.com">georgievaiva59@gmail.com</a>
-      <a href="https://instagram.com/ivageorgieva11" target="_blank">Instagram: @ivageorgieva11</a>
-    </div>
+  <div class="contact-info">
+    <a href="tel:+38976477668">+389 76 477 668</a>
+    <a href="mailto:georgievaiva59@gmail.com">georgievaiva59@gmail.com</a>
+    <a href="https://instagram.com/ivageorgieva11" target="_blank">@ivageorgieva11</a>
   </div>
 </section>
 
